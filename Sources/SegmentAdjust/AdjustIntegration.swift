@@ -2,7 +2,7 @@ import Foundation
 import Adjust
 import Segment
 
-public class AdjustIntegration: SegmentIntegration {
+public class AdjustIntegration: NSObject, Integration {
     public var settings: [AnyHashable: Any]
     public var analytics: Analytics
     
@@ -37,7 +37,7 @@ public class AdjustIntegration: SegmentIntegration {
         Adjust.appDidLaunch(adjustConfig)
     }
     
-    public override func identify(_ payload: IdentifyPayload) {
+    public func identify(_ payload: IdentifyPayload) {
         if !payload.userId.isEmpty {
             Adjust.addSessionPartnerParameter("user_id", value: payload.userId)
         }
@@ -47,7 +47,7 @@ public class AdjustIntegration: SegmentIntegration {
         }
     }
     
-    public override func track(_ payload: TrackPayload) {
+    public func track(_ payload: TrackPayload) {
         let segmentAnonymousId = Analytics.shared().getAnonymousId()
         if !segmentAnonymousId.isEmpty {
             Adjust.addSessionPartnerParameter("anonymous_id", value: segmentAnonymousId)
@@ -79,15 +79,11 @@ public class AdjustIntegration: SegmentIntegration {
         
     }
     
-    public override func screen(_ payload: ScreenPayload) {
-        // Overrides this method to avoid crash. Screen track not needed for Adjust
-    }
-    
-    public override func reset() {
+    public func reset() {
         Adjust.resetSessionPartnerParameters()
     }
     
-    public override func registeredForRemoteNotifications(withDeviceToken deviceToken: Data) {
+    public func registeredForRemoteNotifications(withDeviceToken deviceToken: Data) {
         Adjust.setDeviceToken(deviceToken)
     }
     
