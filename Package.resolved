@@ -2,21 +2,21 @@
   "object": {
     "pins": [
       {
+        "package": "Adjust",
+        "repositoryURL": "https://github.com/goflink/Adjust_4.33.3-beta",
+        "state": {
+          "branch": null,
+          "revision": "7391a0a8769ee4f796bea048094880d0013f2048",
+          "version": "4.33.3-beta"
+        }
+      },
+      {
         "package": "Segment",
         "repositoryURL": "https://github.com/segmentio/analytics-ios",
         "state": {
           "branch": null,
           "revision": "6e5dc12663a96081f375f11441f8d1a4def62aec",
           "version": "4.1.5"
-        }
-      },
-      {
-        "package": "Adjust",
-        "repositoryURL": "https://github.com/adjust/ios_sdk",
-        "state": {
-          "branch": null,
-          "revision": "14a6d8bd4a9e394625768f366457627bd342922d",
-          "version": "4.29.3"
         }
       }
     ]

@@ -14,7 +14,7 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(name: "Adjust", url: "https://github.com/adjust/ios_sdk", from: "4.27.1"),
+        .package(name: "Adjust", url: "https://github.com/goflink/Adjust_4.33.3-beta", .exact("4.33.3-beta")),
         .package(name: "Segment", url: "https://github.com/segmentio/analytics-ios", from: "4.1.5"),
     ],
     targets: [
